@@ -20,13 +20,13 @@ public class UrlService {
         urlEntity url = urlRepo.findByDestination(destination);
         if(url!=null){
             model.addAttribute("url", destination);
-            model.addAttribute("shortenurl", "http://localhost:80/"+url.getUrl());
+            model.addAttribute("shortenurl", "http://localhost:8080/"+url.getUrl());
             return "result";
         }else{
             urlEntity newUrl = new urlEntity(destination, randomString.nextString());
             urlRepo.save(newUrl);
             model.addAttribute("url", destination);
-            model.addAttribute("shortenurl", "http://localhost:80/"+newUrl.getUrl());
+            model.addAttribute("shortenurl", "http://localhost:8080/"+newUrl.getUrl());
             return "result";
         }
 
