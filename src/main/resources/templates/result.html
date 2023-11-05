@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+ <title>Link Shortify</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <script src="https://kit.fontawesome.com/aacc6d80c8.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="/pages/assets/css/result.css"/>
+</head>
+<body>
+ <header>
+     <nav>
+  <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/faq">FAQ</a></li>
+  </ul>
+</nav>
+ </header>
+ <main>
+  <h2>Enter the link you want to shorten:</h2>
+     <form action="" method="get">
+         <label for="url-input"></label><input type="text" id="url-input" name="destination" placeholder="Enter URL..." th:value="${url}">
+         <button type="submit">Shorten</button>
+     </form>
+  <div class="window">
+    <div class="window-content">
+      <h2 class="window-title">Your Link:</h2>
+      <p class="window-link" th:text="${shortenurl}"></p>
+      <button class="copy-button" onclick="copyText()">Copy</button>
+    </div>
+  </div>
+ </main>
+ <footer class="footer-distributed">
+   <div class="footer-left">
+    <p class="footer-links">
+     <a href="/">Home</a>
+     <a href="/about">About</a>
+     <a href="/faq">FAQ</a>
+    <p>qurly.pw &copy; 2023</p>
+   </div>
+   <div class="footer-right">
+    <a href="#"><i class="fab fa-telegram"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+   </div>
+ </footer>
+ <script>
+    function copyText() {
+      const linkText = document.querySelector('.window-link').textContent;
+      navigator.clipboard.writeText(linkText).then(function () {
+        alert('Link copied to clipboard!');
+      }).catch(function () {
+        alert('Failed to copy link.');
+      });
+    }
+  </script>
+</body>
+</html>
