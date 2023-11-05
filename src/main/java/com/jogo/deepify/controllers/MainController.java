@@ -44,8 +44,4 @@ public class MainController {
             return "404";
         }
     }
-
-
-
-
 }
